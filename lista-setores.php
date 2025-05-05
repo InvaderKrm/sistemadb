@@ -3,13 +3,16 @@
 include_once './include/logado.php';
 include_once './include/conexao.php';
 include_once './include/header.php';
+
+$sql = "SELECT * FROM setor;";
+$result = mysqli_query($conn, $sql);
+
 ?>
   <main>
 
     <div class="container">
         <h1>Lista de Setores</h1>
         <a href="./salvar-setores.php" class="btn btn-add">Incluir</a>
-        
         <table>
           <thead>
             <tr>
@@ -21,26 +24,18 @@ include_once './include/header.php';
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>Dado A</td>
-              <td>1</td>
-              <td>Verde</td>
-              <td>
-                <a href="#" class="btn btn-edit">Editar</a>
-                <a href="#" class="btn btn-delete">Excluir</a>
-              </td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Dado B</td>
-              <td>1</td>
-              <td>Verde</td>
-              <td>
-                <a href="#" class="btn btn-edit">Editar</a>
-                <a href="#" class="btn btn-delete">Excluir</a>
-              </td>
-            </tr>
+            <?php while($row = mysqli_fetch_assoc($result)): ?>
+              <tr>
+                <td><?php echo $row['SetorID'] ?></td>
+                <td><?php echo $row['Nome'] ?></td>
+                <td><?php echo $row['Andar'] ?></td>
+                <td><?php echo $row['Cor'] ?></td>
+                <td>
+                  <a href="salvar-setores.php?id=<?php echo $row['SetorID'] ?>" class="btn btn-edit">Editar</a>
+                  <a href="./action/setores.php?action=delete&id=<?php echo $row['SetorID'] ?>" class="btn btn-delete">Excluir</a>
+                </td>
+              </tr>
+            <?php endwhile; ?>
             
           </tbody>
         </table>
@@ -49,6 +44,6 @@ include_once './include/header.php';
   </main>
 
   <?php 
-  // include dos arquivox
+  // include dos arquivos
   include_once './include/footer.php';
   ?>

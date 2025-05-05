@@ -1,11 +1,11 @@
 <?php 
-// include dos arquivox
+// include dos arquivoss
 include_once './include/logado.php';
 include_once './include/conexao.php';
 include_once './include/header.php';
 
 // string do comando SQL
-$sql = "SELECT * FROM cargos";
+$sql = "SELECT * FROM cargos;";
 // executa o comando sql
 $result = mysqli_query($conn, $sql);
 
@@ -25,18 +25,20 @@ $result = mysqli_query($conn, $sql);
             </tr>
           </thead>
           <tbody>
-                <?php while($row = mysqli_fetch_assoc($result)): ?>
-                <tr>
-                    <td><?= $row['CargoID'] ?></td>
-                    <td><?= $row['Nome'] ?></td>
-                    <td><?= number_format($row['TetoSalarial'], 2, ',', '.') ?></td>
-                    <td>
-                        <a href="editar-cargo.php?id=<?= $row['CargoID'] ?>" class="btn btn-edit">Editar</a>
-                        <a href="./action/cargos.php?action=delete&id=<?= $row['CargoID'] ?>" class="btn btn-delete">Excluir</a>
-                    </td>
-                </tr>
-                <?php endwhile; ?>
-            </tbody>
+            <!-- retorna uma linha da tabela como um array associativo -->
+            <?php while($row = mysqli_fetch_assoc($result)): ?>
+              <tr>
+                <!-- mostrando os valores de cada linha da tabela .. -->
+                <td><?php echo $row['CargoID'] ?></td>
+                <td><?php echo $row['Nome'] ?></td>
+                <td><?php echo number_format($row['TetoSalarial'], 2, ',', '.') ?></td>
+                <td>
+                  <a href="salvar-cargos.php?id=<?php echo $row['CargoID'] ?>" class="btn btn-edit">Editar</a>
+                  <a href="./action/cargos.php?action=delete&id=<?php echo $row['CargoID'] ?>" class="btn btn-delete">Excluir</a>
+                </td>
+              </tr>
+            <?php endwhile; ?>
+          </tbody>
         </table>
       </div> 
   </main>

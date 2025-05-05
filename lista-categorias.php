@@ -3,6 +3,10 @@
 include_once './include/logado.php';
 include_once './include/conexao.php';
 include_once './include/header.php';
+
+$sql = "SELECT * FROM categorias;";
+$result = mysqli_query($conn, $sql);
+
 ?>
   <main>
 
@@ -18,24 +22,16 @@ include_once './include/header.php';
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>Dado A</td>
-
-              <td>
-                <a href="#" class="btn btn-edit">Editar</a>
-                <a href="#" class="btn btn-delete">Excluir</a>
-              </td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Dado B</td>
-              <td>
-                <a href="#" class="btn btn-edit">Editar</a>
-                <a href="#" class="btn btn-delete">Excluir</a>
-              </td>
-            </tr>
-            
+            <?php while($row = mysqli_fetch_assoc($result)): ?>
+              <tr>
+                <td><?php echo $row['CategoriaID'] ?></td>
+                <td><?php echo $row['Nome'] ?></td>
+                <td>
+                  <a href="salvar-categorias.php?id=<?php echo $row[CategoriaID] ?>" class="btn btn-edit">Editar</a>
+                  <a href="./action/categorias.php?action=delete&id=<?php echo $row[CategoriaID] ?>" class="btn btn-delete">Excluir</a>
+                </td>
+              </tr>
+            <?php endwhile; ?>
           </tbody>
         </table>
       </div>
