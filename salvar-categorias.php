@@ -18,13 +18,17 @@ if (!empty($_GET['id'])) {
   <main>
 
     <div id="categorias" class="tela">
-        <form class="crud-form" action="./action/cargos.php?action=salvar" method="post" action="">
-          <h2><?php echo empty($cargo['CargoID']) ? 'Cadastro' : 'Edição'; ?> de Categorias</h2>
+        <form class="crud-form" action="./action/categorias.php?action=salvar" method="post" action="">
+          <h2><?php echo empty($categoria['CategoriaID']) ? 'Cadastro' : 'Edição'; ?> de Categorias</h2>
 
           <input type="hidden" name="id" value="<?php echo $categoria['CategoriaID']; ?>">
 
-          <input type="text" name="nome" placeholder="Nome da Categoria">
-          <textarea placeholder="Descrição"></textarea>
+          <input type="text" name="nome" placeholder="Nome da Categoria"
+            value="<?php echo $categoria['Nome']; ?>" required>
+
+          <textarea placeholder="Descrição"
+            value="<?php echo $categoria['Descricao']; ?>" required></textarea>
+            
           <button type="submit">Salvar</button>
         </form>
       </div>

@@ -27,8 +27,8 @@ $result = mysqli_query($conn, $sql);
                 <td><?php echo $row['CategoriaID'] ?></td>
                 <td><?php echo $row['Nome'] ?></td>
                 <td>
-                  <a href="salvar-categorias.php?id=<?php echo $row[CategoriaID] ?>" class="btn btn-edit">Editar</a>
-                  <a href="./action/categorias.php?action=delete&id=<?php echo $row[CategoriaID] ?>" class="btn btn-delete">Excluir</a>
+                  <a href="salvar-categorias.php?id=<?php echo $row['CategoriaID'] ?>" class="btn btn-edit">Editar</a>
+                  <a href="./action/categorias.php?action=delete&id=<?php echo $row['CategoriaID'] ?>" class="btn btn-delete">Excluir</a>
                 </td>
               </tr>
             <?php endwhile; ?>

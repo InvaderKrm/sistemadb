@@ -3,6 +3,15 @@
 include_once './include/logado.php';
 include_once './include/conexao.php';
 include_once './include/header.php';
+
+$sql = "
+  SELECT p.ProdutoID, p.Nome, c.Nome AS CategoriaNome, p.Preco
+  FROM produtos p
+  JOIN categorias c ON p.CategoriaID = c.CategoriaID;
+";
+
+$result = mysqli_query($conn, $sql);
+
 ?>
 
 <main>
@@ -21,27 +30,18 @@ include_once './include/header.php';
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>Produto A</td>
-            <td>Categoria A</td>
-            <td>R$ 10,00</td>
-            <td>
-              <a href="#" class="btn btn-edit">Editar</a>
-              <a href="#" class="btn btn-delete">Excluir</a>
-            </td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Produto B</td>
-            <td>Categoria B</td>
-            <td>R$ 20,00</td>
-            <td>
-              <a href="#" class="btn btn-edit">Editar</a>
-              <a href="#" class="btn btn-delete">Excluir</a>
-            </td>
-          </tr>
-
+          <?php while($row = mysqli_fetch_assoc($result)): ?>
+            <tr>
+              <td><?php echo $row['ProdutoID'] ?></td>
+              <td><?php echo $row['Nome'] ?></td>
+              <td><?php echo $row['CategoriaNome'] ?></td>
+              <td><?php echo $row['Preco'] ?></td>
+              <td>
+                <a href="salvar-produtos.php?id=<?php echo $row['ProdutoID'] ?>" class="btn btn-edit">Editar</a>
+                <a href="./action/produtos.php?action=delete&id=<?php echo $row['ProdutoID'] ?>" class="btn btn-delete">Excluir</a>
+              </td> 
+            </tr>
+          <?php endwhile; ?>
         </tbody>
       </table>
     </div>

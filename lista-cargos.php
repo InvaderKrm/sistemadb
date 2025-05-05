@@ -42,7 +42,6 @@ $result = mysqli_query($conn, $sql);
         </table>
       </div> 
   </main>
-  
   <?php 
   // include dos arquivox
   include_once './include/footer.php';

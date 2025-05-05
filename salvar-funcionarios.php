@@ -57,10 +57,7 @@
                 <option value="<?php echo $key ?>" <?php echo $funcionario['Sexo'] == $key ? 'selected' : '' ?>>
                   <?php echo $value ?>
                 </option>
-              <?php
-              }
-              ?>
-              
+
             </select>
 
             <input type="number" name="cpf" placeholder="CPF"

@@ -10,7 +10,6 @@ $cargo = [
   'TetoSalarial' => ''
 ];
 
-
 if (!empty($_GET['id'])) {
   $result = mysqli_query($conn, "SELECT * FROM cargos WHERE CargoID = {$_GET['id']}");
   $cargo = mysqli_fetch_assoc($result) ?: $cargo;
