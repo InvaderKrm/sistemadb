@@ -9,12 +9,13 @@
     'Nome' => '',
     'DataNascimento' => '',
     'Email' => '',
-    'Sexo' => '',
-    'CPF' => '',
-    'RG' => '',
-    'Salario' => '',
     'CargoID' => '',
-    'SetorID' => ''
+    'SetorID' => '',
+    'Salario' => '',
+    'Sexo' => '',
+    'Altura' => '',
+    'CPF' => '',
+    'RG' => ''
   ];
 
   $cargos = mysqli_query($conn, "SELECT CargoID, Nome FROM cargos");
@@ -43,10 +44,13 @@
             <input type="date" name="nascimento" placeholder="Data de Nascimento"
               value="<?php echo $funcionario['DataNascimento'] ?>" required>
 
-            <input type="email" name="email" placeholder="Email"
+            <input type="text" name="email" placeholder="Email"
               value="<?php echo $funcionario['Email'] ?>" required>
 
-            <input type="number" placeholder="Salário"
+            <input type="number" name="ramal" placeholder="Ramal"
+              value="<?php echo $funcionario['Ramal'] ?>" required>
+
+            <input type="number" name="salario" placeholder="Salário" step="0.01"
               value="<?php echo $funcionario['Salario'] ?>" required>
 
             <select name="sexo" required>
@@ -57,6 +61,9 @@
                 <option value="<?php echo $key ?>" <?php echo $funcionario['Sexo'] == $key ? 'selected' : '' ?>>
                   <?php echo $value ?>
                 </option>
+              
+            <input type="number" name="altura" placeholder="Altura" step="0.01"
+              value="<?php echo $funcionario['Altura'] ?>" required>
 
             </select>
 

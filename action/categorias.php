@@ -30,12 +30,13 @@ switch ($acao) {
         break;
     case 'salvar':
         $nome = mysqli_real_escape_string($conn, $_POST['nome']);
+        $descricao = mysqli_real_escape_string($conn, $_POST['descricao']);
         $id = $_POST['id'] ?? null;
 
         if (!empty($id)) {
-            $sql = "UPDATE categorias SET Nome = '$nome' WHERE CategoriaID = $id";
+            $sql = "UPDATE categorias SET Nome = '$nome', Descricao = '$descricao' WHERE CategoriaID = $id";
         } else {
-            $sql = "INSERT INTO categorias (Nome) VALUES ('$nome')";
+            $sql = "INSERT INTO categorias (Nome, Descricao) VALUES ('$nome', '$Descricao')";
         }
 
         if (mysqli_query($conn, $sql)) {
