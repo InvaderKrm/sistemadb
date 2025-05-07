@@ -20,6 +20,7 @@ if (!empty($_GET['id'])) {
   <!-- tela CRUD -->
   <div id="cargos" class="tela">
     <form class="crud-form" action="./action/cargos.php?action=salvar" method="post">
+      
       <h2><?php echo empty($cargo['CargoID']) ? 'Cadastro' : 'Edição'; ?> de Cargos</h2>
 
       <input type="hidden" name="id" value="<?php echo $cargo['CargoID']; ?>">

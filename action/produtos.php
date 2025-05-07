@@ -29,14 +29,17 @@
             break;
         case 'salvar':
             $nome = mysqli_real_escape_string($conn, $_POST['nome']);
-            $categoria = mysqli_real_escape_string($conn, $_POST['categoria']);
             $preco = floatval($_POST['preco']);
+            $categoria = mysqli_real_escape_string($conn, $_POST['categoria']);
+            $referencia = floatval($_POST['referencia']);
+            $descricao = mysqli_real_escape_string($conn, $_POST['descricao']);
+            $peso = floatval($_POST['peso']);
             $id = $_POST['id'] ?? null;
 
                 if (!empty($id)) {
-                    $sql = "UPDATE produtos SET Nome = '$nome', CategoriaID = '$categoria', Preco = $preco WHERE ProdutoID = $id";
+                    $sql = "UPDATE produtos SET Nome = '$nome', Preco = '$preco', CategoriaID = '$categoria', Referencia = '$referencia', Descricao = '$descricao', Peso = '$peso' WHERE ProdutoID = $id";
                 } else {
-                    $sql = "INSERT INTO produtos (Nome, CategoriaID, Preco) VALUES ('$nome', '$categoria', $preco)";
+                    $sql = "INSERT INTO produtos (Nome, Preco, CategoriaID, Referencia, Descricao, Peso) VALUES ('$nome', '$preco', '$categoria', '$referencia', '$descricao', '$peso')";
                 }
             
                 if(mysqli_query($conn, $sql)) {

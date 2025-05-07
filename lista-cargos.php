@@ -31,7 +31,7 @@ $result = mysqli_query($conn, $sql);
                 <!-- mostrando os valores de cada linha da tabela .. -->
                 <td><?php echo $row['CargoID'] ?></td>
                 <td><?php echo $row['Nome'] ?></td>
-                <td><?php echo number_format($row['TetoSalarial'], 2, ',', '.') ?></td>
+                <td>R$<?php echo number_format($row['TetoSalarial'], 2, ',', '.') ?></td>
                 <td>
                   <a href="salvar-cargos.php?id=<?php echo $row['CargoID'] ?>" class="btn btn-edit">Editar</a>
                   <a href="./action/cargos.php?action=delete&id=<?php echo $row['CargoID'] ?>" class="btn btn-delete">Excluir</a>

@@ -36,7 +36,7 @@ switch ($acao) {
         if (!empty($id)) {
             $sql = "UPDATE categorias SET Nome = '$nome', Descricao = '$descricao' WHERE CategoriaID = $id";
         } else {
-            $sql = "INSERT INTO categorias (Nome, Descricao) VALUES ('$nome', '$Descricao')";
+            $sql = "INSERT INTO categorias (Nome, Descricao) VALUES ('$nome', '$descricao')";
         }
 
         if (mysqli_query($conn, $sql)) {

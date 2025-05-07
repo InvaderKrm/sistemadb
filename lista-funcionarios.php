@@ -47,6 +47,7 @@ $result = mysqli_query($conn, $sql);
         </tbody>
       </table>
     </div>
+</main>
 
 <?php 
   // include dos arquivox

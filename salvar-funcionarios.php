@@ -9,6 +9,7 @@
     'Nome' => '',
     'DataNascimento' => '',
     'Email' => '',
+    'Ramal' => '',
     'CargoID' => '',
     'SetorID' => '',
     'Salario' => '',

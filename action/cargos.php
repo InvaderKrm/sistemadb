@@ -33,9 +33,9 @@ switch ($acao) {
         $id = $_POST['id'] ?? null;
 
             if (!empty($id)) {
-                $sql = "UPDATE cargos SET Nome = '$nome', TetoSalarial = $teto WHERE CargoID = $id";
+                $sql = "UPDATE cargos SET Nome = '$nome', TetoSalarial = '$teto' WHERE CargoID = $id";
             } else {
-                $sql = "INSERT INTO cargos (Nome, TetoSalarial) VALUES ('$nome', $teto)";
+                $sql = "INSERT INTO cargos (Nome, TetoSalarial) VALUES ('$nome', '$teto')";
             }
         
             if(mysqli_query($conn, $sql)) {

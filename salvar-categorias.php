@@ -26,7 +26,7 @@ if (!empty($_GET['id'])) {
           <input type="text" name="nome" placeholder="Nome da Categoria"
             value="<?php echo $categoria['Nome']; ?>" required>
 
-          <textarea name=descricao placeholder="Descrição" required>
+          <textarea name="descricao" placeholder="Descrição" required>
             <?php echo $categoria['Descricao']; ?>
           </textarea>
             

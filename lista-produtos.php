@@ -35,7 +35,7 @@ $result = mysqli_query($conn, $sql);
               <td><?php echo $row['ProdutoID'] ?></td>
               <td><?php echo $row['Nome'] ?></td>
               <td><?php echo $row['CategoriaNome'] ?></td>
-              <td><?php echo $row['Preco'] ?></td>
+              <td>R$<?php echo number_format($row['Preco'], 2, ',', '.') ?></td>
               <td>
                 <a href="salvar-produtos.php?id=<?php echo $row['ProdutoID'] ?>" class="btn btn-edit">Editar</a>
                 <a href="./action/produtos.php?action=delete&id=<?php echo $row['ProdutoID'] ?>" class="btn btn-delete">Excluir</a>
