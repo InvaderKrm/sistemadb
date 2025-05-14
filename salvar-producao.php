@@ -11,7 +11,7 @@ $producao = [
   'ClienteID' => '',
   'DataProducao' => '',
   'DataEntrega' => ''
-];
+];  
 
 $produtos = mysqli_query($conn, "SELECT ProdutoID, Nome FROM produtos");
 $funcionarios = mysqli_query($conn, "SELECT FuncionarioID, Nome FROM funcionarios");
@@ -25,8 +25,10 @@ if(!empty($_GET['id'])) {
   <main>
 
     <div id="producao" class="tela">
-        <form class="crud-form" method="post" action="./action/producao.php?action=salvar" method="post">
+        <form class="crud-form" action="./action/producao.php?action=salvar" method="post">
           <h2><?php echo empty($producao['ProducaoID']) ? 'Cadastro' : 'Edição' ?> de Produção de Produtos</h2>
+
+          <input type="hidden" name="id" value="<?php echo $producao['ProducaoID'] ?>">
 
           <select name="produto" required>
             <option value="">Produto</option>
@@ -58,7 +60,7 @@ if(!empty($_GET['id'])) {
           <input type="date" name="dataproducao" placeholder="Data da Produção"
             value="<?php echo $producao['DataProducao'] ?>" required>
 
-          <input type="date" name="data" placeholder="Data da Entrega"
+          <input type="date" name="dataentrega" placeholder="Data da Entrega"
             value="<?php echo $producao['DataEntrega'] ?>">
 
           <button type="submit">Salvar</button>

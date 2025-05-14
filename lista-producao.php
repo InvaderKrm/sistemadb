@@ -26,8 +26,8 @@ $result = mysqli_query($conn, $sql);
               <th>ID</th>
               <th>Produto</th>
               <th>Cliente</th>
-              <th>Data de Produção</th>
-              <th>Data de Entrega</th>
+              <th>Produção</th>
+              <th>Entrega</th>
               <th>Ações</th>
             </tr>
           </thead>
@@ -38,7 +38,14 @@ $result = mysqli_query($conn, $sql);
                 <td><?php echo $row['ProdutoNome'] ?></td>
                 <td><?php echo $row['ClienteNome'] ?></td>
                 <td><?php echo $row['DataProducao'] ?></td>
-                <td><?php echo $row['DataEntrega'] ?><td>
+                <td><?php
+                      if (!empty($row['DataEntrega'])) {
+                        echo $row['DataEntrega'];
+                      } else {
+                        echo '<em style="font-size: 0.8em; color: #888;">Não entregue</em>';
+                      } 
+                    ?>
+                </td>
                 <td>
                 <a href="salvar-producao.php?id=<?php echo $row['ProducaoID'] ?>" class="btn btn-edit">Editar</a>
                 <a href="./action/producao.php?action=delete&id=<?php echo $row['ProducaoID'] ?>" class="btn btn-delete">Excluir</a>

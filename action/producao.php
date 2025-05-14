@@ -4,7 +4,7 @@ include_once   '../include/logado.php';
 include_once   '../include/conexao.php';
 
 // captura a acao dos dados
-$acao = isset($_GET['action']) ? $GET['action'] : '';
+$acao = isset($_GET['action']) ? $_GET['action'] : '';
 
 if (empty($acao)) {
     header("Location: ../lista-producao.php?error=missing_action");
@@ -28,7 +28,7 @@ switch ($acao) {
         }
         break;
     case 'salvar':
-        $producao = mysqli_real_escape_string($conn, $_POST['producao']);
+        //$producao = mysqli_real_escape_string($conn, $_POST['producao']);
         $produto = mysqli_real_escape_string($conn, $_POST['produto']);
         $funcionario = mysqli_real_escape_string($conn, $_POST['funcionario']);
         $cliente = mysqli_real_escape_string($conn, $_POST['cliente']);

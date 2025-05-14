@@ -4,7 +4,13 @@ include_once './include/logado.php';
 include_once './include/conexao.php';
 include_once './include/header.php';
 
-$setor = ['SetorID' => '', 'Nome' => '', 'Andar' => '', 'Cor' => ''];
+$setor = [
+  'SetorID' => '',
+  'Nome' => '',
+  'Andar' => '',
+  'Cor' => ''
+];
+
 if(!empty($_GET['id'])) {
   $result = mysqli_query($conn, "SELECT * FROM setor WHERE SetorID = {$_GET['id']}");
   $setor = mysqli_fetch_assoc($result) ?: $setor;
