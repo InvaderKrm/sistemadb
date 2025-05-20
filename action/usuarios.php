@@ -33,6 +33,7 @@ switch ($acao) {
         $nome = mysqli_real_escape_string($conn, $_POST['nome']);
         $usuario = mysqli_real_escape_string($conn, $_POST['usuario']);
         $senha = mysqli_real_escape_string($conn, $_POST['senha']);
+        $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
         $id = $_POST['id'] ?? null;
         
         if (!empty($id)) {

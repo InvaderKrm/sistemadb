@@ -1,3 +1,9 @@
+<?php
+include_once './include/conexao.php';
+include_once './include/logado.php';
+include_once './include/header.php';
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -22,7 +28,7 @@
         <h2>Login</h2>
         <input type="text" name="usuario" placeholder="Usuário" required/>
         <input type="password" name="senha" placeholder="Senha" required/>
-        <button type="submit">Entrar</button>
+        <button type="submit">Login</button>
       </form>
     </div>
 

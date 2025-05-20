@@ -34,8 +34,7 @@ if(!empty($_GET['id'])) {
             <input type="email" name="email" placeholder="Email"
                 value="<?php echo $usuario['Email'] ?>" required>
 
-            <input type="password" name="senha" placeholder="Senha"
-                value="<?php echo $usuario['Senha'] ?>" required>
+            <input type="password" name="senha" placeholder="Senha" required>
 
             <button type="submit">Salvar</button>
         </form>
